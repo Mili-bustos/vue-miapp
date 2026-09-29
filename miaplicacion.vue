@@ -20,6 +20,16 @@
 
     <h3>Lista de frutas</h3>
 
+    <input
+      type="text"
+      v-model="nuevaFruta"
+      placeholder="Ingresá una fruta"
+    />
+
+    <button v-on:click="agregarFruta">
+      Agregar
+    </button>
+
     <ul>
       <li v-for="(fruta, i) in frutas" :key="i">
         {{ fruta }}
@@ -35,13 +45,15 @@ const titulo = ref("Aplicación de Vue")
 const nombre = ref("")
 const mostrar = ref(true)
 
-const frutas = ref([
-  "Manzana",
-  "Banana",
-  "Naranja",
-  "Uva",
-  "Frutilla"
-])
+const nuevaFruta = ref("")
+const frutas = ref([])
+
+function agregarFruta() {
+  if (nuevaFruta.value != "") {
+    frutas.value.push(nuevaFruta.value)
+    nuevaFruta.value = ""
+  }
+}
 </script>
 
 <style scoped>
