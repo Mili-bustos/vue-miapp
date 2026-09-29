@@ -8,15 +8,11 @@
       placeholder="Escribí tu nombre"
     />
 
-    <h2>{{ nombre }}</h2>
+    <h2 v-if="mostrar">{{ nombre }}</h2>
 
     <button v-on:click="mostrar = !mostrar">
       {{ mostrar ? "Ocultar" : "Mostrar" }}
     </button>
-
-    <p v-if="mostrar">
-      Bienvenido {{ nombre }}
-    </p>
 
     <h3>Lista de frutas</h3>
 
@@ -76,7 +72,7 @@ input {
 button {
   padding: 10px 20px;
   background: #6c63ff;
-  color: rgb(255, 255, 255);
+  color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
